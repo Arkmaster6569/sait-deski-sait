@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header, nav, section {
+            background: linear-gradient(to bottom right, #FFFF00, #45a049);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        h1, h2, p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            display: inline-block;
+            background-color: #00BFFF;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        nav a:hover {
+            background-color: #00BFFF;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reviews-container {
+            margin-bottom: 20px;
+        }
+
+        .review {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .review textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .review button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .clear-reviews-button {
+            background-color: #4CAF50;
+        }
+
+        .clear-reviews-button:hover {
+            background-color: #CC0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Отзывы</h1>
+            <p>Поделитесь своим мнением о нашем детском саде!</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index_bas.html">Главная</a>
+        <a href="groups.html">Группы и Расписание</a>
+        <a href="vaspit.html">Воспитатели</a>
+        <a href="kan.html">Контакты и адрес</a>
+    </nav>
+
+    <section>
+        <div class="reviews-container">
+            <h2>Добавить отзыв</h2>
+            <div class="review">
+                <textarea id="newReview" placeholder="Напишите свой отзыв"></textarea>
+                <button onclick="addReview()">Добавить отзыв</button>
+            </div>
+        </div>
+
+        <div class="reviews-container">
+            <h2>Существующие отзывы</h2>
+            <div id="reviews"></div>
+            <button class="clear-reviews-button" onclick="clearReviews()">Очистить отзывы</button>
+        </div>
+    </section>
+
+    <script>
+        function addReview() {
+            var newReviewText = document.getElementById("newReview").value;
+            if (newReviewText.trim() !== "") {
+                var reviewContainer = document.getElementById("reviews");
+                var newReviewElement = document.createElement("div");
+                newReviewElement.className = "review";
+                newReviewElement.textContent = newReviewText;
+                reviewContainer.appendChild(newReviewElement);
+                document.getElementById("newReview").value = "";
+
+                // Retrieve existing reviews from local storage
+                var existingReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+                // Add the new review to the array
+                existingReviews.push(newReviewText);
+
+                // Save the updated array back to local storage
+                localStorage.setItem("reviews", JSON.stringify(existingReviews));
+            }
+        }
+
+        function clearReviews() {
+            var reviewContainer = document.getElementById("reviews");
+            reviewContainer.innerHTML = "";
+
+            // Clear reviews from local storage
+            localStorage.removeItem("reviews");
+        }
+
+        function displayReviews() {
+            var reviewContainer = document.getElementById("reviews");
+            var existingReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+            // Clear the current content
+            reviewContainer.innerHTML = "";
+
+            // Display each review
+            existingReviews.forEach(function (reviewText) {
+                var newReviewElement = document.createElement("div");
+                newReviewElement.className = "review";
+                newReviewElement.textContent = reviewText;
+                reviewContainer.appendChild(newReviewElement);
+            });
+        }
+
+        // Display existing reviews when the page loads
+        window.onload = displayReviews;
+    </script>
+</body>
+</html>

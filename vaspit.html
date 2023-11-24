@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детский сад "Жарык нур" - Воспитатели</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header, nav, section {
+            background: linear-gradient(to bottom right, #FFFF00, #45a049);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        h1, h2, p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            display: inline-block;
+            background-color: #00BFFF;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        nav a:hover {
+            background-color: #00BFFF;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .teacher-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Анимация при увеличении */
+        }
+
+        .teacher-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .teacher-card:hover {
+            transform: scale(1.2); /* Увеличение в 1.2 раза при наведении */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Детский сад "Жарык нур"</h1>
+            <p>Встречайте наших замечательных воспитателей!</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index_bas.html">Главная</a>
+        <a href="groups.html">Группы и Расписание</a>
+        <a href="kan.html">Контакты и адрес</a>
+        <a href="otzov.html">Отзывы</a>
+    </nav>
+
+    <section>
+        <div class="teacher-card" onclick="zoomImage(this)">
+            <img src="re.jpg" alt="Фотография воспитателя">
+            <h2>Джени Гитлеровна</h2>
+            <p>Воспитатель "Звездочки"</p>
+            <p>Опыт работы: 8 лет</p>
+            <p>Образование: Педагогический университет, специализация по дошкольному образованию</p>
+            <p>Любимое занятие с детьми: Развитие творческих способностей через рисование и лепку</p>
+        </div>
+
+        <div class="teacher-card" onclick="zoomImage(this)">
+            <img src="we.jpg" alt="Фотография воспитателя">
+            <h2>Чикана Кандрасевна</h2>
+            <p>Воспитатель "Смайлики"</p>
+            <p>Опыт работы: 10 лет</p>
+            <p>Образование: Педагогическая академия, Военная кафедра, специализация по развитию детей дошкольного возраста</p>
+            <p>Любимое занятие с детьми: Организация спортивных игр для развития моторики и ******</p>
+        </div>
+
+        <!-- Добавьте других воспит

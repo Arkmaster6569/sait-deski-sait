@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Notification Example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFC733;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Desktop Notification Example!</h1>
+    </div>
+    <div class="content">
+        <button onclick="showNotification()">Show Notification</button>
+    </div>
+
+    <script>
+        function showNotification() {
+            if (Notification.permission === 'granted') {
+                const notification = new Notification('Привет', {
+                    icon: 'path/to/icon.png', // Replace with the path to your icon image
+                    body: 'Это пример уведомления на рабочем столе.'
+                });
+
+                // Optional: Handle click on the notification
+                notification.onclick = function () {
+                    console.log('Notification clicked');
+                };
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        showNotification();
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

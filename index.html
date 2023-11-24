@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детский сад "Жарык нур"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #87CEEB, #FFD700);
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(1.5);
+            transform-origin: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        /* Стиль для изображения GIF */
+        img {
+            width: 5%;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        /* Стиль для бегущей строки */
+        .marquee-container {
+            margin-top: 30px;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            color: #333;
+            font-size: 18px;
+            direction: rtl; /* Направление текста справа налево */
+        }
+
+        .marquee p {
+            display: inline-block;
+            margin: 0;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%); /* Изменение начальной точки анимации */
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Детский сад "Жарык нур"</h1>
+
+        <!-- Кнопка для перехода на страницу регистрации -->
+        <button onclick="window.location.href='registr.html'">Регистрация</button>
+
+        <!-- Кнопка для перехода на страницу входа -->
+        <button onclick="window.location.href='vhod.html'">Вход</button>
+
+        <!-- Бегущая строка -->
+        <div class="marquee-container">
+            <div class="marquee">
+                <p id="editableText">Здравствуйте, я из компании Орифлэйм. Крч, позвони, понял еее ? +7 778 567 2984</p>
+            </div>
+        </div>
+
+        <!-- GIF-изображение -->
+        <img src="XOsX.gif" alt="УТКА">
+    </div>
+</body>
+
+</html>
